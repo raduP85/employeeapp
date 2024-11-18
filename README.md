@@ -8,14 +8,24 @@ This is a Laravel-based APP & API for managing employees.
 
   ### 1. Clone the Repository
 
+  ```bash
   git clone https://github.com/raduP85/employeeapp.git
+  ```
+  ```bash
   cd employeeapp
+  ```
 
   ### 2. Install Dependencies
 
-  Install PHP dependencies using Composer: composer install
+  Install PHP dependencies using Composer: 
+  ```bash
+  composer install 
+  ```
 
-  Install JavaScript dependencies using npm: npm install
+  Install JavaScript dependencies using npm: 
+  ```bash
+  npm install
+  ```
 
   ### 3. Create the Environment File
 
@@ -26,22 +36,35 @@ This is a Laravel-based APP & API for managing employees.
 
   ### 4. Generate Application Key
 
-  Generate the Laravel application key: php artisan key:generate
+  Generate the Laravel application key: 
+  ```bash
+  php artisan key:generate
+  ```
 
   ### 5. Run Database Migrations
 
-  Run the database migrations to set up the database schema: php artisan migrate
+  Run the database migrations to set up the database schema: 
+  ```bash
+  php artisan migrate
+  ```
 
   ### 6. Seed the Database (Optional)
 
   The app comes with built in seeders for sample data.
-  You can seed the database with initial data: php artisan db:seed
+  You can seed the database with initial data: 
+  ```bash
+  php artisan db:seed
+  ```
 
   ### 7.  Run the Development Server
 
   Compile the assets (vite) and start the development server: 
+  ```bash
   npm run dev
+  ```
+  ```bash
   php artisan serve
+  ```
 
   ### 8.  Access the Application
 
@@ -57,9 +80,14 @@ Base URL: http://localhost:8000/api
   Endpoint: /employees
   Method: GET
 
-  Sample Request: curl -X GET "http://localhost:8000/api/employees"
+  Sample Request: 
+
+  ```bash
+  curl -X GET "http://localhost:8000/api/employees"
+  ```
 
   Sample Response:
+  ```
   {
     "current_page": 1,
     "data": [
@@ -104,6 +132,7 @@ Base URL: http://localhost:8000/api
     "to": 10,
     "total": 51
   }
+  ```
 
   ### 2 Create a New Employee
   Endpoint: /employees
