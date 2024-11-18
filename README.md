@@ -10,8 +10,12 @@ This is a Laravel-based APP & API for managing employees.
 
   ```bash
   git clone https://github.com/raduP85/employeeapp.git
+<<<<<<< HEAD
   ```
   ```bash
+=======
+  
+>>>>>>> 04f1e498f9dd7811de38d82ee1c9ee33451e5143
   cd employeeapp
   ```
 
@@ -140,6 +144,7 @@ Base URL: http://localhost:8000/api
   Headers: Content-Type: application/json
 
   Sample Request:
+  ```bash
   curl -X POST "http://localhost:8000/api/employees" \
   -H "Content-Type: application/json" \
   -d '{
@@ -149,8 +154,10 @@ Base URL: http://localhost:8000/api
       "job_title": "Project Manager",
       "salary": 80000
   }'
+  ```
 
   Sample Response:
+  ```
   {
     "message": "Employee successfully created.",
     "employee": {
@@ -164,6 +171,7 @@ Base URL: http://localhost:8000/api
         "id": 54
     }
   }
+  ```
 
   Note: All fields are required, there is validation for email format, all fields are string format and salary is decimal 10,2
 
@@ -171,9 +179,13 @@ Base URL: http://localhost:8000/api
   Endpoint: /employees/{id}
   Method: GET
 
-  Sample Request: curl -X GET "http://localhost:8000/api/employees/54"
+  Sample Request: 
+  ```bash
+  curl -X GET "http://localhost:8000/api/employees/54"
+  ```
 
   Sample Response:
+  ```
   {
     "message": "Employee successfully created.",
     "employee": {
@@ -187,6 +199,7 @@ Base URL: http://localhost:8000/api
         "created_at": "2024-11-18T11:14:35.000000Z"
     }
   }
+  ```
 
   ### 4 Update an Employee
   Endpoint: /employees/{id}
@@ -194,6 +207,7 @@ Base URL: http://localhost:8000/api
   Headers: Content-Type: application/json
 
   Sample Request:
+  ```bash
   curl -X PUT "http://localhost:8000/api/employees/54" \
   -H "Content-Type: application/json" \
   -d '{
@@ -203,8 +217,10 @@ Base URL: http://localhost:8000/api
       "job_title": "Project Manager",
       "salary": 90000
   }'
+  ```
 
   Sample Response:
+  ```
   {
     "message": "Employee successfully updated.",
     "employee": {
@@ -218,14 +234,20 @@ Base URL: http://localhost:8000/api
         "created_at": "2024-11-18T11:14:35.000000Z"
     }
   }
+  ```
 
   ### 5 Delete an Employee
   Endpoint: /employees/{id}
   Method: DELETE
 
-  Sample Request: curl -X DELETE "http://localhost:8000/api/employees/1"
+  Sample Request: 
+  ```bash
+  curl -X DELETE "http://localhost:8000/api/employees/1"
+  ```
 
   Sample Response:
+  ```
   {
     "message": "Employee successfully deleted."
   }
+  ```
