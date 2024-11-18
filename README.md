@@ -10,12 +10,8 @@ This is a Laravel-based APP & API for managing employees.
 
   ```bash
   git clone https://github.com/raduP85/employeeapp.git
-<<<<<<< HEAD
   ```
   ```bash
-=======
-  
->>>>>>> 04f1e498f9dd7811de38d82ee1c9ee33451e5143
   cd employeeapp
   ```
 
