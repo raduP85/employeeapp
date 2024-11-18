@@ -9,6 +9,7 @@ This is a Laravel-based APP & API for managing employees.
   ### 1. Clone the Repository
 
   git clone https://github.com/raduP85/employeeapp.git
+  
   cd employeeapp
 
   ### 2. Install Dependencies
