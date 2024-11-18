@@ -72,7 +72,9 @@ class EmployeesController extends Controller
    */
   public function show(string $id)
   {
-      //
+    $employee = Employee::findOrFail($id);
+
+    return view('employees.show', compact('employee'));
   }
 
   /**
@@ -106,6 +108,13 @@ class EmployeesController extends Controller
    */
   public function destroy(string $id)
   {
-      //
+    Employee::findOrFail($id)->delete();
+    
+    $notification = array(
+      'message' => __('employees.successfully_deleted'),
+      'type' => 'success',
+    );
+
+    return redirect()->route('employees.index')->with('notification', $notification);
   }
 }
