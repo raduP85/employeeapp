@@ -1,66 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Employee Management APP & API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This is a Laravel-based APP & API for managing employees.
 
-## About Laravel
+## Setup Instructions
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  Follow these steps to set up the project after cloning the repository:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+  ### 1. Clone the Repository
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  git clone https://github.com/raduP85/employeeapp.git
+  cd employeeapp
 
-## Learning Laravel
+  ### 2. Install Dependencies
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+  Install PHP dependencies using Composer: composer install
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+  Install JavaScript dependencies using npm: npm install
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+  ### 3. Create the Environment File
 
-## Laravel Sponsors
+  Create an .env file: Copy the .env.example file to .env and fill in the required credentials.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+  Windows Users: Due to known issues with the built-in PHP web server, it's recommended to set the PHP_CLI_SERVER_WORKERS environment variable to 1 in your .env file:
+  PHP_CLI_SERVER_WORKERS=1
 
-### Premium Partners
+  ### 4. Generate Application Key
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+  Generate the Laravel application key: php artisan key:generate
 
-## Contributing
+  ### 5. Run Database Migrations
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+  Run the database migrations to set up the database schema: php artisan migrate
 
-## Code of Conduct
+  ### 6. Seed the Database (Optional)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  The app comes with built in seeders for sample data.
+  You can seed the database with initial data: php artisan db:seed
 
-## Security Vulnerabilities
+  ### 7.  Run the Development Server
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+  Compile the assets (vite) and start the development server: 
+  npm run dev
+  php artisan serve
 
-## License
+  ### 8.  Access the Application
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+  Open your browser and navigate to http://localhost:8000 to access the application.
+
+## API Documentation
+
+Base URL: http://localhost:8000/api
+
+## Endpoints
+
+  ### 1 List All Employees
+  Endpoint: /employees
+  Method: GET
+
+  Sample Request: curl -X GET "http://localhost:8000/api/employees"
+
+  Sample Response:
+  {
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "John Doe",
+            "email": "john.doe@example.com",
+            "phone": "+40755123456",
+            "job_title": "Software Engineer",
+            "salary": 60000,
+            "created_at": "2024-11-18T07:02:55.000000Z",
+            "updated_at": "2024-11-18T07:02:55.000000Z"
+        },
+        ...
+    ],
+    "first_page_url": "http://localhost:8000/api/employees?page=1",
+    "from": 1,
+    "last_page": 6,
+    "last_page_url": "http://localhost:8000/api/employees?page=6",
+    "links": [
+        {
+            "url": null,
+            "label": "&laquo; Previous",
+            "active": false
+        },
+        {
+            "url": "http://localhost:8000/api/employees?page=1",
+            "label": "1",
+            "active": true
+        },
+        {
+            "url": "http://localhost:8000/api/employees?page=2",
+            "label": "2",
+            "active": false
+        },
+        ...
+    ],
+    "next_page_url": "http://localhost:8000/api/employees?page=2",
+    "path": "http://localhost:8000/api/employees",
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 10,
+    "total": 51
+  }
+
+  ### 2 Create a New Employee
+  Endpoint: /employees
+  Method: POST
+  Headers: Content-Type: application/json
+
+  Sample Request:
+  curl -X POST "http://localhost:8000/api/employees" \
+  -H "Content-Type: application/json" \
+  -d '{
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "phone": "+40755123456",
+      "job_title": "Project Manager",
+      "salary": 80000
+  }'
+
+  Sample Response:
+  {
+    "message": "Employee successfully created.",
+    "employee": {
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "phone": "+40755123456",
+        "job_title": "Project Manager",
+        "salary": 80000,
+        "updated_at": "2024-11-18T11:14:35.000000Z",
+        "created_at": "2024-11-18T11:14:35.000000Z",
+        "id": 54
+    }
+  }
+
+  Note: All fields are required, there is validation for email format, all fields are string format and salary is decimal 10,2
+
+  ### 3 Get a Single Employee
+  Endpoint: /employees/{id}
+  Method: GET
+
+  Sample Request: curl -X GET "http://localhost:8000/api/employees/54"
+
+  Sample Response:
+  {
+    "message": "Employee successfully created.",
+    "employee": {
+        "id": 54,
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "phone": "+40755123456",
+        "job_title": "Project Manager",
+        "salary": 80000,
+        "updated_at": "2024-11-18T11:14:35.000000Z",
+        "created_at": "2024-11-18T11:14:35.000000Z"
+    }
+  }
+
+  ### 4 Update an Employee
+  Endpoint: /employees/{id}
+  Method: PUT
+  Headers: Content-Type: application/json
+
+  Sample Request:
+  curl -X PUT "http://localhost:8000/api/employees/54" \
+  -H "Content-Type: application/json" \
+  -d '{
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "phone": "+40755123456",
+      "job_title": "Project Manager",
+      "salary": 90000
+  }'
+
+  Sample Response:
+  {
+    "message": "Employee successfully updated.",
+    "employee": {
+        "id": 54,
+        "name": "Jane Doe",
+        "email": "jane.doe@example.com",
+        "phone": "+40755123456",
+        "job_title": "Project Manager",
+        "salary": 90000,
+        "updated_at": "2024-11-18T11:14:35.000000Z",
+        "created_at": "2024-11-18T11:14:35.000000Z"
+    }
+  }
+
+  ### 5 Delete an Employee
+  Endpoint: /employees/{id}
+  Method: DELETE
+
+  Sample Request: curl -X DELETE "http://localhost:8000/api/employees/1"
+
+  Sample Response:
+  {
+    "message": "Employee successfully deleted."
+  }
